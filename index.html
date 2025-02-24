@@ -1,7 +1,42 @@
 <!DOCTYPE html>
-<html>
-  <body>
-    <h1> hello </h1>
-    <p> hi my name is blank </p>
-  </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Move Square with Arrow Keys</title>
+    <style>
+        .square {
+            width: 50px;
+            height: 50px;
+            background-color: blue;
+            position: absolute;
+            top: 100px;
+            left: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="square" id="square"></div>
+
+    <script>
+        let square = document.getElementById("square");
+        let positionX = 100;
+        let positionY = 100;
+        let speed = 10; // Change this to make it move faster/slower
+
+        document.addEventListener("keydown", function(event) {
+            if (event.key === "ArrowRight") {
+                positionX += speed; // Move right
+            } else if (event.key === "ArrowLeft") {
+                positionX -= speed; // Move left
+            } else if (event.key === "ArrowUp") {
+                positionY -= speed; // Move up
+            } else if (event.key === "ArrowDown") {
+                positionY += speed; // Move down
+            }
+            square.style.left = positionX + "px";
+            square.style.top = positionY + "px";
+        });
+    </script>
+</body>
 </html>
